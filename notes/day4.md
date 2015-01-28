@@ -390,8 +390,8 @@ $('a').on('click', function() {
 - What happens when you click a link now?
 console logs the message, but the link does not cause the page to reload. 
 
-
-
+- What happens when you click a link now?
+console logs the message, but the link does not cause the page to reload. 
 
 # Javascript, jQuery, and Rails
 - Create a new Rails application with jQuery support.
