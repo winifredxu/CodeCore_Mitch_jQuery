@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				//$('h1').html("Welcome to jQuery");
+				
+				$('h1').on('click', function() {
+					$('h1').html("jQuery Events now");
+				});
+
+				$('h1').on('mouseenter', function() {
+					$('h1').html('Get OFF of me');
+				});
+				$('h1').on('mouseleave', function() {
+					$('h1').html("Thank goodness");
+				});
+
+			});
+
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<h1>Welcome to HTML</h1>
+
+
+		Homework for Mitche's jQuery questions: 
+
+		1). Assignment: WikiHack: http://en.wikipedia.org/wiki/Pug in your browser.
+		Write some jQuery to change the title of the article to Your Name.
+		Write some jQuery to hide the body of the article
+		Write some jQuery to remove the wikipedia logo
+
+		$('title').html('HelloWorld');
+		$('#firstHeading').html('Mitch');
+		$('body').hide();
+		$('#p-logo').remove();
+
+
+		2). Assignment: Craigslist Hacker: http://vancouver.craigslist.ca
+		Write some jQuery to get the HREF attribute of the first link on the page
+		Write some jQuery to get the number of links on this page
+		Write some jQuery to change the text for all links to be [Your Name]
+		Write some jQuery to make Craigslist's logo link to http://www.google.com
+
+		$('a').attr('href');    <--- this will return only the first href link
+		$('a').length;
+		$('a').html('Mitch');
+		$('#logo a').attr('href', 'http://www.google.com');
+
+		3). Assignment: WikiWriter: 
+		Wikipedia thinks it would be awesome if their articles "typed" themselves out over time, instead of all of the text showing up at once. They've hired you to build a prototype for them.
+		Write a function `wikiWriter` that, when called from the console on any Wikipedia article, clears the article text, and writes it back out to the page one character at a time.
+
+		var wikiWriter = function() {
+				var bodyMass = $('#bodyContent').text();
+			$('#bodyContent').children().remove();
+
+			setTimeout( myPrint, 30, 0, bodyMass);
+		};
+
+		var myPrint =function(i, bodyMass) {
+			var baseTime = 0; 
+
+			if (i<bodyMass.length) {
+				$('#bodyContent').text( bodyMass.substring(0, i) );
+				if (bodyMass[i-1] == ".") {
+					// to give longer delay in case a sentence just ended with a PERIOD.
+					baseTime = 100;
+				}
+				else {  // for all other characters, give a random delay before printing. 
+					baseTime = 1; 
+				};
+				setTimeout (myPrint,  Math.floor((Math.random() * 30) + baseTime), i+1, bodyMass);
+
+			};
+		};
+
+
+		//Alternative solutions: 
+
+
+
+
+		$(document).ready(function() {
+			var article = $('#mw-content-text');
+			var originalText = article.text();
+			article.text('');
+			var i = 0;
+
+			setInterval(function() {
+	    	article.text( article.text() + originalText.charAt(i) )
+	     	i+=1
+			}, 100);
+
+		});
+
+
+		4). Assignment: Jukebox 2
+		Find `exercises/jukebox-2` in the course's Javascript github repo.
+		Create your own github repository by copying this starter content.
+		Complete the instructions given in the README.md file.
+		Submit a link to your github repository.
+
+		(see winifredxu's github https://github.com/winifredxu/JukeBox2_javascript )
+		
+	</body>
+</html>
