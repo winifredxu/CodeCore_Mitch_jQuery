@@ -256,7 +256,7 @@ var KEYS = {
 	' ': 32,
 	'k': 107,
   'r': 114,
-  'b': 99,
+  'b': 98,
   'g': 103, //etc etc.
 }; //example of using constant to create a key map
 
@@ -270,7 +270,7 @@ $(document).on('keypress', function(event) {
 
 - When the 'b' key is pressed, toggle all (b)lue shapes.
 $(document).on('keypress', function(event) {
-	if (event.which == 99) { //'b' is 99
+	if (event.which == 98) { //'b' is 99
 		$('.blue.shape').toggle();
 	};
 });
@@ -297,7 +297,7 @@ $(document).on('keypress', function(event) {
 $(document).on('keypress', function(event) {
   if (event.which == 32) { //spacebar is 32
     //String.fromCharCode(32);
-    $('#green-container').append();
+    $('#green-container').append('        <div class="small blue circle shape"></div>');
   };
 });
 
@@ -389,6 +389,9 @@ $('a').on('click', function() {
 
 - What happens when you click a link now?
 console logs the message, but the link does not cause the page to reload. 
+
+
+
 
 # Javascript, jQuery, and Rails
 - Create a new Rails application with jQuery support.
